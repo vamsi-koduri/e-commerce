@@ -44,10 +44,13 @@ export default function Product() {
   const location=useLocation();
   const navigate=useNavigate();
 
-  const handleFilter=(value,sectionId)=>{
-    const searchParams=new URLSearchParams(location.search);
 
+  const handleFilter=(value,sectionId)=>{
+
+    const searchParams=new URLSearchParams(location.search);
+    
     let filterValue=searchParams.getAll(sectionId)
+    
 
     if(filterValue.length>0 && filterValue[0].split(",").includes(value)){
       filterValue=filterValue[0].split(",").filter((item)=>item!==value)
